@@ -686,9 +686,6 @@
 
 
 
-
-
-
 .now-playing-page {
   max-width: 600px;
   margin: 4rem auto;
@@ -722,15 +719,12 @@
   margin-top: 0.8rem;
 }
 
-/* ===== ABOUT PAGE LAYOUT ===== */
-
-/* ===== ABOUT PAGE ===== */
 
 .about-page .page-header {
   margin-bottom: 1.25rem;
 }
 
-/* centered card with two columns */
+
 .about-hero {
   background: var(--page-bg);
   width: min(900px, 100%);
@@ -744,7 +738,6 @@
   align-items: center;
 }
 
-/* left side text */
 .about-left h1 {
   margin: 0 0 1.2rem;
   font-family: var(--font-display);
@@ -760,7 +753,6 @@
   max-width: 55ch;
 }
 
-/* right side image */
 .about-image {
   width: 100%;
   display: block;
@@ -769,15 +761,12 @@
   box-shadow: var(--shadow-soft);
 }
 
-/* stack on small screens */
 @media (max-width: 720px) {
   .about-hero {
     grid-template-columns: 1fr;
   }
 }
 
-
-/* right column image */
 .about-image {
   width: 100%;
   display: block;
@@ -786,16 +775,12 @@
   box-shadow: var(--shadow-soft);
 }
 
-/* stack on small screens */
 @media (max-width: 720px) {
   .records.about-page > .hero {
     grid-template-columns: 1fr;
   }
 }
 
-/* === GLOBAL RESPONSIVE HELPERS === */
-
-/* images / iframes never overflow their container */
 img,
 iframe {
   max-width: 100%;
@@ -897,13 +882,5 @@ body {
     margin: 1rem 0 1.5rem;
   }
 
-  .store-list {
-    grid-template-columns: 1fr;
-    gap: 0.9rem;
-  }
-
-  .store-card {
-    padding: 0.6rem 0.7rem 0.85rem;
-  }
 
 
