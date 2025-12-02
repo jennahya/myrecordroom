@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Field Notes – Your Local Record Store</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+  </head>
+
+  <body>
+    <main class="records">
+      <section class="hero">
+        <h1>Field Notes</h1>
+
+        <nav class="site-nav">
+          <a class="nav-link" href="index.html">Home</a>
+          <a class="nav-link nav-link-active" href="notes.html">Field Notes</a>
+          <a class="nav-link" href="wishlist.html">wish list</a>
+          <a href="now_playing.html" class="nav-link">now playing</a>
+          <a href="about.html" class="nav-link">about</a>
+        </nav>
+
+        <p>
+          Click around to check out my field notes on metro Detroit &amp; Ann Arbor record stores!
+        </p>
+      </section>
+
+
+      <div
+        id="record-store-map"
+        role="img"
+        aria-label="Interactive map showing record stores in Metro Detroit and Ann Arbor"
+      ></div>
+
+      <div id="store-list" class="store-list"></div>
+    </main>
+
+    <script src="map.js"></script>
+
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA4sSGKgWAxRi7B2WmtOo7DMtrZ1ie6oDg&callback=initMap"
+      async
+      defer
+    ></script>
+    <footer>
+      <p>built with love for vinyl 🎵</p>
+    </footer>
+  </body>
+</html>
+
+
+
+
+
+
+
+
