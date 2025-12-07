@@ -11,8 +11,8 @@
     <section class="hero">
       <div class="hero-text">
         <h1>now playing</h1>
-
       </div>
+
       <nav class="site-nav" aria-label="Site navigation">
         <a href="index.html" class="nav-link">Home</a>
         <a href="notes.html" class="nav-link">Field Notes</a>
@@ -27,6 +27,8 @@
         id="random-play"
         class="turntable-btn"
         aria-label="click the turntable to spin a random record!"
+        aria-describedby="now-playing-instructions"
+        type="button"
       >
         <img
           src="album covers/turntable.png"
@@ -35,8 +37,21 @@
         />
       </button>
 
-      <div id="now-playing-embed" class="np-embed">
-        <p class="now-playing-text">
+      <div
+        id="now-playing-embed"
+        class="np-embed"
+        aria-live="polite"
+        tabindex="-1"
+        aria-label="Spotify audio preview region"
+      >
+        <p style="position:absolute;left:-9999px;">
+          30-second audio preview of a randomly selected record
+        </p>
+
+        <p
+          class="now-playing-text"
+          id="now-playing-instructions"
+        >
           click the turntable to spin a random preview
         </p>
       </div>
@@ -44,12 +59,13 @@
   </main>
 
   <footer>
-    <p>built with love for vinyl 🎵</p>
+    <p>built with love for vinyl <span role="img" aria-label="music note">🎵</span></p>
   </footer>
 
   <script src="now_playing.js"></script>
 </body>
 </html>
+
 
 
 
