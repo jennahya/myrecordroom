@@ -1,4 +1,3 @@
-
 const recordStores = [
   {
     name: "Underground Sounds",
@@ -92,14 +91,11 @@ const recordStores = [
   }
 ];
 
-
-
 let map;
 let infoWindow;
 let markers = [];
 
 function initMap() {
-
   const center = { lat: 42.38, lng: -83.25 };
 
   map = new google.maps.Map(document.getElementById("record-store-map"), {
@@ -129,6 +125,7 @@ function initMap() {
       `;
       infoWindow.setContent(content);
       infoWindow.open(map, marker);
+      document.getElementById("store-list")?.focus();
     });
 
     markers.push(marker);
@@ -141,9 +138,17 @@ function buildStoreList() {
   const listEl = document.getElementById("store-list");
   if (!listEl) return;
 
+  listEl.tabIndex = -1;
+
   recordStores.forEach((store, index) => {
     const card = document.createElement("article");
     card.className = "store-card";
+    card.tabIndex = 0;
+    card.setAttribute("role", "button");
+    card.setAttribute(
+      "aria-label",
+      `${store.name}, rated ${store.rating || "unrated"}, located at ${store.address}. Activate to view on map.`
+    );
 
     card.innerHTML = `
       <h3>${store.name}</h3>
@@ -154,10 +159,9 @@ function buildStoreList() {
       <p class="store-notes">${store.notes || ""}</p>
     `;
 
-    card.addEventListener("click", () => {
+    const activate = () => {
       const marker = markers[index];
       if (!marker) return;
-
 
       map.panTo(marker.getPosition());
       map.setZoom(13);
@@ -176,8 +180,18 @@ function buildStoreList() {
       infoWindow.open(map, marker);
 
       card.classList.toggle("is-open");
+      listEl.focus();
+    };
+
+    card.addEventListener("click", activate);
+    card.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        activate();
+      }
     });
 
     listEl.appendChild(card);
   });
 }
+
