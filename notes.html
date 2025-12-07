@@ -12,7 +12,7 @@
       <section class="hero">
         <h1>Field Notes</h1>
 
-        <nav class="site-nav">
+        <nav class="site-nav" aria-label="Site navigation">
           <a class="nav-link" href="index.html">Home</a>
           <a class="nav-link nav-link-active" href="notes.html">Field Notes</a>
           <a class="nav-link" href="wishlist.html">wish list</a>
@@ -20,19 +20,25 @@
           <a href="about.html" class="nav-link">about</a>
         </nav>
 
-        <p>
+        <p id="map-instructions">
           Click around to check out my field notes on metro Detroit &amp; Ann Arbor record stores!
         </p>
       </section>
 
-
       <div
         id="record-store-map"
         role="img"
+        tabindex="0"
         aria-label="Interactive map showing record stores in Metro Detroit and Ann Arbor"
+        aria-describedby="map-instructions"
       ></div>
 
-      <div id="store-list" class="store-list"></div>
+      <div
+        id="store-list"
+        class="store-list"
+        aria-live="polite"
+        aria-label="Text-based list of record stores for screen readers"
+      ></div>
     </main>
 
     <script src="map.js"></script>
@@ -42,11 +48,13 @@
       async
       defer
     ></script>
+
     <footer>
-      <p>built with love for vinyl 🎵</p>
+      <p>built with love for vinyl <span role="img" aria-label="music note">🎵</span></p>
     </footer>
   </body>
 </html>
+
 
 
 
