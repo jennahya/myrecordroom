@@ -7,15 +7,15 @@
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
-  <main class="records">
-    
 
+  <a href="#record-grid" class="skip-link">Skip to records</a>
+
+  <main class="records">
         <section class="hero">
             <div class="hero-text">
               <h1>Jenna's Record Room</h1>
             </div>
           </section>
-
 
     <nav class="site-nav" aria-label="Site navigation">
       <a href="index.html" class="nav-link nav-link-active">Home</a>
@@ -25,14 +25,13 @@
       <a href="about.html" class="nav-link">about</a>
     </nav>
 
-
     <div class="controls" aria-label="Record filters">
-
       <div class="control-group filters">
         <button
           class="tab active"
           type="button"
           data-filter="all"
+          aria-pressed="true"
         >
           All
         </button>
@@ -40,11 +39,11 @@
           class="tab"
           type="button"
           data-filter="regular-rotation"
+          aria-pressed="false"
         >
           Regular rotation
         </button>
       </div>
-
 
       <div class="control-group search">
         <input
@@ -54,7 +53,6 @@
           aria-label="Search records by title, artist, or genre"
         />
       </div>
-
 
       <div class="control-group sort">
         <select id="sort-select" aria-label="Sort records">
@@ -66,18 +64,17 @@
       </div>
     </div>
 
-
-    <section id="record-grid" class="record-grid" aria-live="polite">
-
-    </section>
+    <section id="record-grid" class="record-grid" aria-live="polite"></section>
   </main>
 
   <script src="app.js" defer></script>
+
   <footer>
-    <p>built with love for vinyl 🎵</p>
-</footer>
+    <p>built with love for vinyl <span role="img" aria-label="music note">🎵</span></p>
+  </footer>
 </body>
 </html>
+
 
 
 
