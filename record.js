@@ -123,7 +123,6 @@ function renderRecord(container, base, extra) {
     `
     : "";
 
-
   const spotifyUrl = (extra && extra.spotifyUrl) || base.spotifyUrl || "";
   let spotifyEmbedHtml = "";
 
@@ -135,6 +134,7 @@ function renderRecord(container, base, extra) {
     spotifyEmbedHtml = `
       <section class="detail-section now-playing">
         <h3>Preview</h3>
+        <p style="position:absolute;left:-9999px;">30-second audio preview of the album ${base.title} by ${base.artist}</p>
         <iframe
           id="spotify-player"
           src="${embedUrl}"
@@ -149,7 +149,6 @@ function renderRecord(container, base, extra) {
     `;
   }
 
-
   container.innerHTML = `
     <div class="detail-left">
       <img
@@ -161,13 +160,13 @@ function renderRecord(container, base, extra) {
     </div>
 
     <div class="detail-info">
-      <h2>${base.title}</h2>
+      <h2 tabindex="-1">${base.title}</h2>
       <p class="detail-artist">${base.artist || ""}</p>
 
       <div class="detail-meta">
         ${year ? `<span>${year}</span>` : ""}
         ${genre ? `<span>${genre}</span>` : ""}
-        ${base.favorite ? `<span>★ favorite</span>` : ""}
+        ${base.favorite ? `<span aria-label="favorite record" role="img">★ favorite</span>` : ""}
       </div>
 
       ${tracklistHtml}
@@ -175,6 +174,8 @@ function renderRecord(container, base, extra) {
       ${creditsHtml}
     </div>
   `;
+
+  container.querySelector("h2")?.focus();
 }
 
 function escapeHtml(str) {
@@ -183,6 +184,7 @@ function escapeHtml(str) {
     .replace(/</g, "&lt;")
     .replace(/>/g, "&gt;");
 }
+
 
 
 
