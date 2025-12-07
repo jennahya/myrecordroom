@@ -1,5 +1,4 @@
-
-   *,
+*,
    *::before,
    *::after {
      box-sizing: border-box;
@@ -686,6 +685,9 @@
 
 
 
+
+
+
 .now-playing-page {
   max-width: 600px;
   margin: 4rem auto;
@@ -720,10 +722,10 @@
 }
 
 
+
 .about-page .page-header {
   margin-bottom: 1.25rem;
 }
-
 
 .about-hero {
   background: var(--page-bg);
@@ -738,21 +740,6 @@
   align-items: center;
 }
 
-.about-left h1 {
-  margin: 0 0 1.2rem;
-  font-family: var(--font-display);
-  font-size: clamp(2.4rem, 4vw, 3rem);
-  text-transform: lowercase;
-  letter-spacing: 0.04em;
-  line-height: 1.05;
-}
-
-.about-left p {
-  font-size: 0.95rem;
-  line-height: 1.6;
-  max-width: 55ch;
-}
-
 .about-image {
   width: 100%;
   display: block;
@@ -761,11 +748,13 @@
   box-shadow: var(--shadow-soft);
 }
 
+
 @media (max-width: 720px) {
   .about-hero {
     grid-template-columns: 1fr;
   }
 }
+
 
 .about-image {
   width: 100%;
@@ -780,6 +769,7 @@
     grid-template-columns: 1fr;
   }
 }
+
 
 img,
 iframe {
@@ -841,36 +831,11 @@ body {
     height: 320px;
   }
 
-  .about-hero {
-    width: 100%;
-    padding: 2rem 1.25rem;
-    grid-template-columns: 1fr;
-    gap: 1.75rem;
-  }
-
-  .about-left h1 {
-    font-size: 2.1rem;
-  }
-
-  .about-left p {
-    max-width: 100%;
-  }
 }
 
   .essay-page {
     max-width: 100%;
     padding: 2rem 1rem 2.5rem;
-  }
-
-  .essay-page h1 {
-    font-size: 2rem;
-    line-height: 1.1;
-    margin-bottom: 1rem;
-  }
-
-  .essay-page p {
-    font-size: 0.95rem;
-    line-height: 1.6;
   }
 
   .store-map-section {
@@ -881,6 +846,18 @@ body {
     height: 320px;
     margin: 1rem 0 1.5rem;
   }
+
+  .store-list {
+    grid-template-columns: 1fr;
+    gap: 0.9rem;
+  }
+
+  .store-card {
+    padding: 0.6rem 0.7rem 0.85rem;
+  }
+
+
+
 
 
 
