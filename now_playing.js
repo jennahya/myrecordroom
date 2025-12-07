@@ -1,10 +1,7 @@
-// now_playing.js
-
 let playableAlbums = [];
 let currentIndex = -1;
 
 document.addEventListener("DOMContentLoaded", () => {
-  console.log("DOMContentLoaded fired");
   initNowPlaying();
 });
 
@@ -12,23 +9,15 @@ async function initNowPlaying() {
   const button = document.getElementById("random-play");
   const embed = document.getElementById("now-playing-embed");
 
-  console.log("button:", button);
-  console.log("embed container:", embed);
-
   if (!button || !embed) {
-    console.warn("Now Playing: button or embed container not found");
     return;
   }
 
   try {
     const res = await fetch("./record_details.json");
-    console.log("fetch status:", res.status);
     const allDetails = await res.json();
-    console.log("allDetails length:", allDetails.length);
-
 
     playableAlbums = allDetails.filter((rec) => rec.spotifyUrl);
-    console.log("playableAlbums length:", playableAlbums.length);
 
     if (!playableAlbums.length) {
       embed.textContent =
@@ -38,19 +27,16 @@ async function initNowPlaying() {
     }
 
     button.addEventListener("click", () => {
-      console.log("turntable clicked");
       spinDisc();
       playRandomAlbum();
     });
   } catch (err) {
-    console.error("Error loading record_details.json for now playing:", err);
     embed.textContent = "sorry, something went wrong loading your records.";
   }
 }
 
 function playRandomAlbum() {
   if (!playableAlbums.length) {
-    console.warn("playRandomAlbum called with no playableAlbums");
     return;
   }
 
@@ -63,11 +49,8 @@ function playRandomAlbum() {
   const album = playableAlbums[currentIndex];
   const embedContainer = document.getElementById("now-playing-embed");
 
-  console.log("chosen album:", album);
-
   const rawUrl = album.spotifyUrl;
   if (!rawUrl) {
-    console.warn("chosen album has no spotifyUrl");
     return;
   }
 
@@ -75,10 +58,10 @@ function playRandomAlbum() {
     .replace("open.spotify.com/album", "open.spotify.com/embed/album")
     .split("?")[0];
 
-  console.log("embedUrl:", embedUrl);
-
-
   embedContainer.innerHTML = `
+    <p style="position:absolute;left:-9999px;">
+      30-second audio preview of ${album.title || "selected album"}
+    </p>
     <iframe
       src="${embedUrl}"
       width="600"
@@ -90,12 +73,13 @@ function playRandomAlbum() {
       title="Spotify preview: ${album.title || ""}"
     ></iframe>
   `;
+
+  embedContainer.focus();
 }
 
 function spinDisc() {
   const disc = document.getElementById("record-overlay");
   if (!disc) {
-    console.warn("record-overlay not found");
     return;
   }
 
@@ -104,6 +88,7 @@ function spinDisc() {
     disc.classList.remove("spinning");
   }, 3500);
 }
+
 
 
 
