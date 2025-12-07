@@ -137,6 +137,21 @@
     color: var(--accent-2);
   }
 
+.skip-link {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translateY(-200%);
+  background: white;
+  color: black;
+  padding: 0.5rem 0.75rem;
+  border: 2px solid black;
+  z-index: 9999;
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+}
 
 
 
