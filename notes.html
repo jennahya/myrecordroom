@@ -14,8 +14,10 @@
     <main class="records" id="main-content">
       <section class="hero">
         <h1>Field Notes</h1>
-
-        <nav class="site-nav" aria-label="Site navigation">
+        <button class="nav-toggle" aria-expanded="false" aria-controls="mobile-nav">
+          Menu
+        </button>        
+        <nav class="site-nav" id="mobile-nav" aria-label="Site navigation">
           <a class="nav-link" href="index.html">Home</a>
           <a class="nav-link nav-link-active" href="notes.html">Field Notes</a>
           <a class="nav-link" href="wishlist.html">wish list</a>
@@ -55,6 +57,18 @@
     <footer>
       <p>built with love for vinyl <span role="img" aria-label="music note">🎵</span></p>
     </footer>
+    <script>
+      const toggleBtn = document.querySelector(".nav-toggle");
+      const nav = document.querySelector(".site-nav");
+    
+      if (toggleBtn && nav) {
+        toggleBtn.addEventListener("click", () => {
+          const isOpen = nav.classList.toggle("is-open");
+          toggleBtn.setAttribute("aria-expanded", isOpen);
+        });
+      }
+    </script>
+    
   </body>
 </html>
 
