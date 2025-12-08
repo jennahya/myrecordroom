@@ -16,8 +16,10 @@
       <div class="hero-text">
         <h1>wish list</h1>
       </div>
-
-      <nav class="site-nav" aria-label="Site navigation">
+      <button class="nav-toggle" aria-expanded="false" aria-controls="mobile-nav">
+        Menu
+      </button>      
+      <nav class="site-nav" id="mobile-nav" aria-label="Site navigation">
         <a href="index.html" class="nav-link">Home</a>
         <a href="notes.html" class="nav-link">Field Notes</a>
         <a href="wishlist.html" class="nav-link nav-link-active">wish list</a>
@@ -53,7 +55,18 @@
   <footer>
     <p>built with love for vinyl <span role="img" aria-label="music note">🎵</span></p>
   </footer>
-
+  <script>
+    const toggleBtn = document.querySelector(".nav-toggle");
+    const nav = document.querySelector(".site-nav");
+  
+    if (toggleBtn && nav) {
+      toggleBtn.addEventListener("click", () => {
+        const isOpen = nav.classList.toggle("is-open");
+        toggleBtn.setAttribute("aria-expanded", isOpen);
+      });
+    }
+  </script>
+  
 </body>
 </html>
 
