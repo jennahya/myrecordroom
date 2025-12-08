@@ -7,16 +7,17 @@
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
-
   <a href="#about-content" class="skip-link">Skip to content</a>
-  
-<main class="records" id="about-content">
+
+  <main class="records" id="about-content">
     <section class="hero">
       <div class="hero-text">
         <h1>now playing</h1>
       </div>
-
-      <nav class="site-nav" aria-label="Site navigation">
+      <button class="nav-toggle" aria-expanded="false" aria-controls="mobile-nav">
+        Menu
+      </button>      
+      <nav class="site-nav" id="mobile-nav" aria-label="Site navigation">
         <a href="index.html" class="nav-link">Home</a>
         <a href="notes.html" class="nav-link">Field Notes</a>
         <a href="wishlist.html" class="nav-link">wish list</a>
@@ -66,6 +67,18 @@
   </footer>
 
   <script src="now_playing.js"></script>
+  <script>
+    const toggleBtn = document.querySelector(".nav-toggle");
+    const nav = document.querySelector(".site-nav");
+  
+    if (toggleBtn && nav) {
+      toggleBtn.addEventListener("click", () => {
+        const isOpen = nav.classList.toggle("is-open");
+        toggleBtn.setAttribute("aria-expanded", isOpen);
+      });
+    }
+  </script>
+  
 </body>
 </html>
 
